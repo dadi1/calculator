@@ -12,9 +12,9 @@
                 <div class="screen"></div>
             </div>
             <div class="rows">
-                <button class="" onclick="clearAll()" >AC</button>
-                <button class="" onclick="turnNegative()" >+/-</button>
-                <button class="" onclick="porcentage()" >%</button>
+                <button class="tag" onclick="clearAll()" >AC</button>
+                <button class="tag" onclick="turnNegative()" >+/-</button>
+                <button class="tag" onclick="porcentage()" >%</button>
                 <button class="operator" onclick="callOperator('.')" >÷</button>
             </div>
             <div class="rows">
@@ -35,11 +35,12 @@
                 <button class="number" onclick="addNumber('3')">3</button>
                 <button class="operator" onclick="callOperator('+')">+</button>
             </div>
-            <div class="last-rows">
+            <div class="rows">
                 <button class="number zero" onclick="addNumber('0')">0</button>
-                <button class="operator" onclick="turnFloat()">.</button>
+                <button class="number" onclick="turnFloat()">.</button>
                 <button class="operator" onclick="equals()">=</button>
             </div>
+            <div class="last-row">g</div>
         </div>
     </body>
 </html>

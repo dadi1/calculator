@@ -10,11 +10,57 @@ body{
     flex-direction:column;
 }
 
-.calcultor{
-    background-color: black;
+button{
+    height: 25px;
+    width: 30px;
+    border-radius: 20px;
+    border:none;
+    margin-top:4px;
 }
 
+
 .number{
-    background-color:rgb(232, 152, 2);
+    background-color:rgba(73, 73, 70, 0.938);
     color:rgb(255, 255, 255);
+}
+
+.tag{
+    background-color:rgb(190, 188, 188);
+}
+
+.operator{
+    background-color:rgb(252, 179, 45);
+    color:rgb(255, 255, 255);
+}
+
+.zero{
+    width:70px;
+}
+
+.screen{
+    height: 30px;
+    text-align:end;
+    color:rgb(252, 252, 252);
+    font-family:xenara;
+    padding-right: 30px;
+    padding-top:10px;
+}
+
+.screen-row{
+    text-align: center;
+    background-color:black;
+    width:180px;
+    border-top:20px;
+    border-top-left-radius: 18px;
+    border-top-right-radius:18px;
+}
+
+.rows{
+    background-color:black;
+}
+
+.last-row{
+    background-color:black;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius:30px;
 }
