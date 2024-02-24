@@ -13,8 +13,8 @@
             </div>
             <div class="rows">
                 <button class="" onclick="clearAll()" >AC</button>
-                <button class="" onclick="" >+/-</button>
-                <button class="" onclick="" >%</button>
+                <button class="" onclick="turnNegative()" >+/-</button>
+                <button class="" onclick="porcentage()" >%</button>
                 <button class="operator" onclick="callOperator('.')" >÷</button>
             </div>
             <div class="rows">
@@ -37,7 +37,7 @@
             </div>
             <div class="last-rows">
                 <button class="number zero" onclick="addNumber('0')">0</button>
-                <button class="operator" onclick="">.</button>
+                <button class="operator" onclick="turnFloat()">.</button>
                 <button class="operator" onclick="equals()">=</button>
             </div>
         </div>

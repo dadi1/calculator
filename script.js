@@ -3,6 +3,7 @@ let firstNumber = null;
 let secondNumber = null;
 let firstOperator = null;
 let secondOperator = null;
+let auxOperator = 'null'
 let result = null;
 
 const screen = document.querySelector('.screen');
@@ -46,16 +47,18 @@ function addNumber(number){
 function callOperator(operator) {
     if (firstOperator == null) {
         firstOperator = operator;
+        auxOperator = firstOperator;
         firstNumber = secondNumber;
         secondNumber = null;
         screenValue = '0';
     }
     else if (firstOperator != null) {
+        auxOperator = 'null';
         if (secondNumber == null) {
             firstOperator = operator;
             screenValue == '0';
         }
-        else if (secondNumber != null){
+        else if (secondNumber != null) {
             secondOperator = operator;
             result = operate(firstNumber, secondNumber, firstOperator);
             if (result == 'Erro'){
@@ -84,17 +87,74 @@ function callOperator(operator) {
 }
 
 function equals() {
-
+    if (auxOperator != null) {
+        if (secondNumber == null){
+            firstOperator = 'null';
+            firstNumber = operate(firstNumber, firstNumber, auxOperator);
+            screenValue = firstNumber;
+            updateScreen();
+            screenValue = '0';
+        }
+    }
+    if (firstOperator != null && secondNumber != null){
+        firstNumber = operate(firstNumber, secondNumber, firstOperator);
+        screenValue = firstNumber;
+        updateScreen();
+        screenValue = '0';
+        result = null;
+        secondNumber = null;
+        firstOperator = null;
+    }
 }
 
-function porcentage () {
-
+function porcentage() {
+    if (secondNumber != null){
+        secondNumber = operate(secondNumber, '100', '.');
+        if (firstNumber != null){
+            result = operate(firstNumber, secondNumber, firstOperator);
+            console.log(result);
+            if (result == 'Erro'){
+                screenValue = 'Erro';
+                updateScreen();
+                screenValue = '0';
+                firstNumber = null;
+                secondNumber = null;
+                firstOperator = null;
+                secondOperator = null;
+                result = null;
+            }
+            else {
+                firstNumber = result;
+                screenValue = result;
+                updateScreen();
+                screenValue = '0';
+                result = null;
+                secondNumber = null;
+                firstOperator = secondOperator;
+                secondOperator = null;
+            }
+        }else {
+            screenValue = secondNumber;
+            updateScreen();
+        }
+    }   
 }
 
 function turnFloat() {
-
+    if (firstNumber == null){
+    screenValue += '.';
+    secondNumber = screenValue;
+    updateScreen();
+    } 
 }
 
 function turnNegative() {
-    
+    if (firstNumber != null && secondNumber == null ){ 
+        secondNumber = firstNumber;
+        firstNumber = null;
+    } if (secondNumber != null) {
+        secondNumber = operate(secondNumber, -1, 'x')
+        screenValue = secondNumber;
+        updateScreen();
+    }
 }
